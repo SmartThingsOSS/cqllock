@@ -1,4 +1,4 @@
-package cqllock
+package main
 
 import (
 	"io/ioutil"
@@ -23,7 +23,7 @@ type Config struct {
 const configFile = "~/.cqllockrc"
 
 // ParseConfig parses the cqllock config file into a Config object.
-func ParseConfig() *Config {
+func parseConfig() *Config {
 	config := Config{}
 	contents, err := ioutil.ReadFile(expandHome(configFile))
 	if err != nil {

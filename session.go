@@ -1,4 +1,4 @@
-package cqllock
+package main
 
 import (
 	"time"
@@ -7,8 +7,7 @@ import (
 	"github.com/gocql/gocql"
 )
 
-// Session returns a *gocql.Session created based on the parameters in config.
-func (config *Config) Session() *gocql.Session {
+func (config *Config) session() *gocql.Session {
 	cluster := gocql.NewCluster(config.Seeds...)
 	cluster.Timeout = time.Second * 3
 	cluster.RetryPolicy = &gocql.SimpleRetryPolicy{

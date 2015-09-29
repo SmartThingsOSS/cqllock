@@ -1,7 +1,7 @@
 cqllock
 =======
 
-Command-line tools to create and delete distributed locks using Cassandra and lightweight transactions. These tools are useful for managing distributed jobs on multiple hosts.
+Command-line tool to create and delete distributed locks using Cassandra and lightweight transactions. These tools are useful for managing distributed jobs on multiple hosts.
 
 Usage
 -----
@@ -33,7 +33,7 @@ keypath: /path/to/optional/client/key/if/using/SSL.key
 
 ##### Multiple hosts run a job, but only allow one at a time:
   ```
-  cqllock -t 1d -r 5m jobLock && ./myJob.sh ; cqlunlock jobLock
+  cqllock -t 1d -r 5m jobLock && ./myJob.sh ; cqllock -u jobLock
   ```
 
   The first host to acquire the lock will hold it until ./myJob.sh finishes. Other hosts will attempt to acquire the lock every five minutes and will wait up to one day
