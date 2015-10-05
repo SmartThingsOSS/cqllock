@@ -18,6 +18,8 @@ type Config struct {
 	Password string
 	Keyspace string
 	Table    string
+	Timeout  int
+	Retries  int
 }
 
 const configFile = "~/.cqllockrc"

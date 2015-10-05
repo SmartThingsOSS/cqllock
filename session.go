@@ -9,10 +9,6 @@ import (
 
 func (config *Config) session() *gocql.Session {
 	cluster := gocql.NewCluster(config.Seeds...)
-	cluster.Timeout = time.Second * 3
-	cluster.RetryPolicy = &gocql.SimpleRetryPolicy{
-		NumRetries: 5,
-	}
 
 	if config.CertPath != "" {
 		cluster.SslOpts = &gocql.SslOptions{
@@ -26,6 +22,16 @@ func (config *Config) session() *gocql.Session {
 		cluster.Authenticator = gocql.PasswordAuthenticator{
 			Username: config.Username,
 			Password: config.Password,
+		}
+	}
+
+	if config.Timeout > 0 {
+		cluster.Timeout = time.Second * config.Timeout
+	}
+
+	if config.Retries > 0 {
+		cluster.RetryPolicy = &gocql.SimpleRetryPolicy{
+			NumRetries: config.Retries,
 		}
 	}
 

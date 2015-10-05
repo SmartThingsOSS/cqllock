@@ -16,6 +16,7 @@ var (
 	lifetime   = kingpin.Flag("lifetime", "Lifetime of the lock. Lock will be considered stale after this duration. 0 means lock is valid forever.").Short('l').Default("0").Duration()
 	holderFlag = kingpin.Flag("holder", "Name of the lock holder. Defaults to hostname.").Short('h').String()
 	unlock     = kingpin.Flag("unlock", "Unlock instead of lock.").Short('u').Default("false").Bool()
+	debug      = kingpin.Flag("debug", "Print debugging messages.").Default("false").Bool()
 )
 
 func defaultHolder() *string {
@@ -31,6 +32,9 @@ func defaultHolder() *string {
 
 func main() {
 	kingpin.Parse()
+	if *debug {
+		log.SetLevel(log.DebugLevel)
+	}
 
 	// set holder to hostname if it's not specified on the command-line
 	holder := defaultHolder()
