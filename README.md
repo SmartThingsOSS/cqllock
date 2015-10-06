@@ -6,7 +6,7 @@ Command-line tool to create and delete distributed locks using Cassandra and lig
 Usage
 -----
 
-Set up a config file at `~/.cqllockrc` in the following YAML format:
+Set up a config file at `~/.cqllockrc` or `/etc/cqllock.yaml` in the following YAML format:
 
 ```
 seeds:
@@ -19,6 +19,8 @@ username: optional-username-if-using-auth
 password: optional-password-if-using-auth
 certpath: /path/to/optional/client/cert/if/using/SSL.pem
 keypath: /path/to/optional/client/key/if/using/SSL.key
+timeout: 10  # This is the Cassandra connectiont timeout in seconds
+retries: 3   # This is the number of times to retry failed Cassandra queries
 ```
 
 ### Possible scenarios
