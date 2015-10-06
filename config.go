@@ -1,7 +1,9 @@
-package cqllock
+package main
 
 import (
+	"errors"
 	"io/ioutil"
+	"os"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/mitchellh/go-homedir"
@@ -18,18 +20,27 @@ type Config struct {
 	Password string
 	Keyspace string
 	Table    string
+	Timeout  int
+	Retries  int
 }
 
-const configFile = "~/.cqllockrc"
+var configFiles = []string{"~/.cqllockrc", "/etc/cqllock.yaml"}
 
 // ParseConfig parses the cqllock config file into a Config object.
-func ParseConfig() *Config {
+func parseConfig() *Config {
 	config := Config{}
-	contents, err := ioutil.ReadFile(expandHome(configFile))
+
+	path, err := configPath()
 	if err != nil {
 		log.Fatal(err)
 	}
-	if err = yaml.Unmarshal([]byte(contents), &config); err != nil {
+
+	contents, err := ioutil.ReadFile(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err := yaml.Unmarshal(contents, &config); err != nil {
 		log.Fatal(err)
 	}
 	return &config
@@ -41,4 +52,15 @@ func expandHome(path string) (ret string) {
 		log.Fatal(err)
 	}
 	return
+}
+
+func configPath() (path string, err error) {
+	for _, path = range configFiles {
+		path = expandHome(path)
+		if _, err = os.Stat(path); os.IsNotExist(err) {
+			continue
+		}
+		return path, nil
+	}
+	return "", errors.New("no config file found")
 }
