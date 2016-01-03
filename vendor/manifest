@@ -1,0 +1,117 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/Sirupsen/logrus",
+			"repository": "https://github.com/Sirupsen/logrus",
+			"revision": "446d1c146faa8ed3f4218f056fcd165f6bcfda81",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/SmartThingsOSS/stcql",
+			"repository": "https://github.com/SmartThingsOSS/stcql",
+			"revision": "aafa5229681acf5bb3218cd0cfb6dbe8f267aff5",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/alecthomas/template",
+			"repository": "https://github.com/alecthomas/template",
+			"revision": "14fd436dd20c3cc65242a9f396b61bfc8a3926fc",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/alecthomas/units",
+			"repository": "https://github.com/alecthomas/units",
+			"revision": "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/debber/debber-v0.3/deb",
+			"repository": "https://github.com/debber/debber-v0.3",
+			"revision": "d0e314b3cf051dd33599e0352cac28fafec12d97",
+			"branch": "master",
+			"path": "/deb"
+		},
+		{
+			"importpath": "github.com/debber/debber-v0.3/debgen",
+			"repository": "https://github.com/debber/debber-v0.3",
+			"revision": "d0e314b3cf051dd33599e0352cac28fafec12d97",
+			"branch": "master",
+			"path": "/debgen"
+		},
+		{
+			"importpath": "github.com/debber/debber-v0.3/targz",
+			"repository": "https://github.com/debber/debber-v0.3",
+			"revision": "d0e314b3cf051dd33599e0352cac28fafec12d97",
+			"branch": "master",
+			"path": "/targz"
+		},
+		{
+			"importpath": "github.com/gocql/gocql",
+			"repository": "https://github.com/gocql/gocql",
+			"revision": "0b7f4f639ab52b6b4fe86f46687455b7b8644963",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/golang/snappy",
+			"repository": "https://github.com/golang/snappy",
+			"revision": "723cc1e459b8eea2dea4583200fd60757d40097a",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/hailocab/go-hostpool",
+			"repository": "https://github.com/hailocab/go-hostpool",
+			"revision": "50839ee41f32bfca8d03a183031aa634b2dc1c64",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/laher/argo/ar",
+			"repository": "https://github.com/laher/argo",
+			"revision": "11d91c83cc0fd1ac9079a10b44e185db575f7f43",
+			"branch": "master",
+			"path": "/ar"
+		},
+		{
+			"importpath": "github.com/laher/goxc",
+			"repository": "https://github.com/laher/goxc",
+			"revision": "2669180ee4c69ce256f570ad653e1ff460527f97",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/mitchellh/go-homedir",
+			"repository": "https://github.com/mitchellh/go-homedir",
+			"revision": "d682a8f0cf139663a984ff12528da460ca963de9",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/airbrake/gobrake.v2",
+			"repository": "https://gopkg.in/airbrake/gobrake.v2",
+			"revision": "c9d51adc624b5cc4c1bf8de730a09af4878ffe2d",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/alecthomas/kingpin.v2",
+			"repository": "https://gopkg.in/alecthomas/kingpin.v2",
+			"revision": "8852570bd3865e9c4d4cb7cf5001c4295b07cad5",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/gemnasium/logrus-airbrake-hook.v2",
+			"repository": "https://gopkg.in/gemnasium/logrus-airbrake-hook.v2",
+			"revision": "31e6fd4bd5a98d8ee7673d24bc54ec73c31810dd",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/inf.v0",
+			"repository": "https://gopkg.in/inf.v0",
+			"revision": "3887ee99ecf07df5b447e9b00d9c0b2adaa9f3e4",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/yaml.v2",
+			"repository": "https://gopkg.in/yaml.v2",
+			"revision": "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4",
+			"branch": "v2"
+		}
+	]
+}

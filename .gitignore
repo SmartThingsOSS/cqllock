@@ -1,0 +1,8 @@
+bin/
+pkg/
+build/
+debian/
+
+# we may consider checking in vendored files
+vendor/**
+!vendor/manifest

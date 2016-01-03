@@ -1,15 +1,14 @@
 # -*- Makefile -*-
 
-version=0.0.1
-deb_file=cqllock_${version}_amd64.deb
-
-build: test package
+build: clean test package
 
 test:
-	go test
+	gb test -race
 
 package:
-	goxc -bc="linux" -arch="amd64" -d build -pv="${version}"
+	gb build github.com/laher/goxc
+	# See .goxc.json for parameters
+	GOPATH="`pwd`:`pwd`/vendor" bin/goxc
 
 clean:
-	rm -rf build
+	rm -rf bin pkg build debian
