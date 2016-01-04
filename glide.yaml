@@ -1,0 +1,8 @@
+package: github.com/SmartThingsOSS/cqllock
+import:
+- package: github.com/Sirupsen/logrus
+- package: github.com/SmartThingsOSS/stcql
+- package: github.com/gocql/gocql
+- package: github.com/mitchellh/go-homedir
+- package: gopkg.in/alecthomas/kingpin.v2
+- package: gopkg.in/yaml.v2

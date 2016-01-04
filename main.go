@@ -17,6 +17,7 @@ var (
 	holderFlag = kingpin.Flag("holder", "Name of the lock holder. Defaults to hostname.").Short('h').String()
 	unlock     = kingpin.Flag("unlock", "Unlock instead of lock.").Short('u').Default("false").Bool()
 	debug      = kingpin.Flag("debug", "Print debugging messages.").Default("false").Bool()
+	version    = "dev"
 )
 
 func defaultHolder() *string {
@@ -31,6 +32,7 @@ func defaultHolder() *string {
 }
 
 func main() {
+	kingpin.Version(version)
 	kingpin.Parse()
 	if *debug {
 		log.SetLevel(log.DebugLevel)

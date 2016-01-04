@@ -1,15 +1,26 @@
 # -*- Makefile -*-
+VERSION := $(shell cat .goxc.json | jq -r .PackageVersion)
 
-version=0.0.1
-deb_file=cqllock_${version}_amd64.deb
-
-build: test package
-
-test:
-	go test
-
-package:
-	goxc -bc="linux" -arch="amd64" -d build -pv="${version}"
+bootstrap:
+	goxc -wc
+	glide up
 
 clean:
-	rm -rf build
+	rm -rf ./build
+
+test:
+	go test -race -v .
+
+build: clean test
+	goxc -bc="linux,darwin" -arch="amd64" -d build -build-ldflags "-X main.version=${VERSION}" xc
+
+release: bump-patch build
+
+bump-patch:
+	goxc bump
+
+bump-minor:
+	goxc -dot=1 bump
+
+bump-major:
+	goxc -dot=0 bump
